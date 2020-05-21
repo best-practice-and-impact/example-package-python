@@ -4,8 +4,8 @@ Example Package Python
 This is a simple python package, providing a template to write your own.
 
 A package is a collection of code that aims to perform related tasks, or perform a high level function.
-Python packages contain modules (``.py`` files) that can be grouped into any number of sub-packages (folders below the package folder).
-This basic package contains a single module - `example_module` - and no sub-packages.
+Python packages contain modules (`.py` files) that can be grouped into any number of sub-packages (folders below the package folder).
+This basic package contains a single module - ``example_module`` - and no sub-packages.
 
 Package components are typically imported using one of the following methods:
 
@@ -31,18 +31,18 @@ Setup
 
 There are two key components that distinguish a python packages from folders containing a collection of python files:
 
-* ``__init__.py`` files
-* ``setup.py``
+* `__init__.py` files
+* `setup.py`
 
 
-``__init__.py``
-^^^^^^^^^^^^^^^
+`__init__.py`
+^^^^^^^^^^^^^
 
-An ``__init__.py`` file allows files (now modules) within the same directory to imported.
+An `__init__.py` file allows files (now modules) within the same directory to imported.
 You should include one in each directory of your package that contains python code.
 
 You will often find these files empty, but they do have an additional use.
-Code within a ``__init__.py`` file is executed when the package or sub-package is imported.
+Code within a `__init__.py` file is executed when the package or sub-package is imported.
 Any objects defined in this file will therefore be available at that level of the package.
 One use for this is importing useful modules, functions or classes from deep within your package stucture, making them accessible from the package level.
 
@@ -51,7 +51,7 @@ One use for this is importing useful modules, functions or classes from deep wit
     from examplepackage.example_module import example_function
 
 
-With the code above included in the top-level ``__init__.py``, ``example_function`` can be accessed by users via simpler import statements:
+With the code above included in the top-level `__init__.py`, ``example_function`` can be accessed by users via simpler import statements:
 
 .. code-block:: python
 
@@ -68,8 +68,8 @@ With the code above included in the top-level ``__init__.py``, ``example_functio
 
 
 
-``setup.py``
-^^^^^^^^^^^^
+`setup.py`
+^^^^^^^^^^
 
 This file sits outside of the folder containing your package code.
 It contains the instructions that the ``setuptools`` library uses to build and install your package.
@@ -85,21 +85,23 @@ It includes:
 Installing your package
 -----------------------
 
-Packages can only be imported if they are located in a directory on the system path (``sys.path``).
+Packages can only be imported if they are located in a directory on the PYTHONPATH (which you can view in python using ``sys.path()``).
 
-Package installed using ``pip`` are located on the system path.
-You can install local packages that you are working on in develop mode, by pointing pip the directory that contains ``setup.py`` and your package folder:
+Packages installed using the command line tool ``pip`` are added to this path.
+This is preferable to manually adding paths to ``sys.path`` in your scripts.
+You can install local packages that you are working on in develop mode, by pointing pip the **directory** that contains `setup.py` and your package folder:
 
-.. code-block:: command
+.. code-block:: console
 
     pip install -e local_path/example-package-python
 
-This creates a reference to your local package files - you'll see a ``.egg-info`` file has been created next to your package.
+This creates a temporary reference to your local package files - you'll see an `.egg-info` file has been created next to your package.
+When packages are installed without the ``-e`` flag, they're installed in `site-packages` next to your python installation.
 
-Be sure to uninstall your package once you've finished- don't just delete the ``.egg-info`` reference.
-Use the name of the package, like so:
+Be sure to uninstall your package once you've finished - don't delete the `.egg-info` reference.
+Use the name of the package when deleting it, like so:
 
-.. code-block:: command
+.. code-block:: console
 
     pip uninstall examplepackage
 
@@ -108,18 +110,21 @@ Documentation
 -------------
 
 A README is a good place to provide an overview of your package or project.
-This README is written in reStructuredText (``.rst``) for easy integration with the main documentation (`/docs`).
+This README is written in reStructuredText (`.rst`) for easy integration with the main documentation.
 However, Markdown and many other markup languages work just as well.
 
 The `sphinx package <https://www.sphinx-doc.org/en/master/usage/quickstart.html>`_ is very useful for generating detailed package documentation, and can generate this from inline documentation in your code.
+Once installed, the ``sphinx-quickstart`` command can be used to set up your documentation.
+You might find the ``autosummary`` `extension <https://www.sphinx-doc.org/en/master/usage/extensions/autosummary.html>`_ useful for extracting documentation from entire modules.
 Documentation usually sits inside the package, in a `docs/` folder.
 
 
 Dependencies
 ------------
 
-Listing your package depencencies ensures that your package works.
-Explicitly stating versions of dependencies can increase the reproducibility of outputs from your package that depend on other packages.
+You should list packages that your package uses in the `requirements.txt` file.
+Listing your package depencencies ensures that these packages are also installed when someone installs your package.
+Explicitly stating versions of dependencies can increase the reproducibility in the function of your package that might depend on particular versions of other packages.
 
 Python package dependencies can indicate minimum package versions (``>=``) or the exact version number (``==``) that is required.
 
@@ -155,7 +160,7 @@ Be aware that the documentation for including non-python files is `notoriously b
 
 To include data in your source and binary distributions:
 
-* In the ``setup.py`` file ``setup(...)``` function call, include ``include_package_data = True``.
+* In the ``setup.py`` file ``setup(...)`` function call, include ``include_package_data = True``.
 * Alongside your `setup.py` file, provide a `MANIFEST.in` file.
 
 This should list any non-python files that you wish to include.
