@@ -166,7 +166,7 @@ To include data in your source and binary distributions:
 * In the ``setup.py`` file ``setup(...)`` function call, include ``include_package_data = True``.
 * Alongside your `setup.py` file, provide a `MANIFEST.in` file.
 
-This should list any non-python files that you wish to include.
+The ``MANIFEST.in`` file should list any non-python files that you wish to include distributions.
 
 A ``MANIFEST.in`` file includes single files, or all files of a type, as below:
 
