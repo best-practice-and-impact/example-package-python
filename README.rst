@@ -73,13 +73,14 @@ With the code above included in the top-level `__init__.py`, ``example_function`
 
 This file sits outside of the folder containing your package code.
 It contains the instructions that the ``setuptools`` library uses to build and install your package.
-It includes:
+These are provided using the ``setup`` function, including:
 
-* the name that users will use to import your package (lower case with no spaces, hyphens or underscores)
 * author and/or maintainer contact details
-* the folders to install, or use ``setuptools.find_packages()`` to do this for you.
+* the folders to install, or use ``setuptools.find_packages()``
 * ``install_requires`` - other packages that this package depends on
 * classifiers that describe the required major python version and operating system - this is necessary for uploading a package to PyPI
+
+For detailed usage of ``setup()`` see the ``setuptools`` `documentation <https://setuptools.readthedocs.io/en/latest/setuptools.html#developer-s-guide>`_.
 
 
 Installing your package
