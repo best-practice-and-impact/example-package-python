@@ -25,6 +25,8 @@ Package components are typically imported using one of the following methods:
 
 See this `Real Python guide <https://realpython.com/python-modules-packages/>`_ for further information on importing packages and modules.
 
+Useful aspects of building a package are summarised below.
+
 
 Setup
 -----
@@ -177,10 +179,9 @@ A ``MANIFEST.in`` file includes single files, or all files of a type, as below:
 Distributing
 ------------
 
-Storing your source code in an open repository allows others to view and critique your code.
+Storing your source code in an open repository allows others to view and critique your code. Python code can be distributed in a number of formats, as described by this `overview of python packages <https://packaging.python.org/overview/>`_.
 
 To allow others to install and use your code more easily, consider uploading your package to the Python Package Index (PyPI).
-PyPI is an online repository of python packages.
-It is the default repository used by pip.
+PyPI is an online repository of python packages and is the default repository used by ``pip``.
 
-Please see this `in-depth guide to packaging projects <https://packaging.python.org/tutorials/packaging-projects/>`_ for instructions on uploading your package to PyPI.
+Please see this `guide to packaging projects <https://packaging.python.org/tutorials/packaging-projects/>`_ for instructions on uploading your package to PyPI.
