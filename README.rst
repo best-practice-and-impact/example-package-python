@@ -150,10 +150,12 @@ Versioning
 ----------
 
 A version number is essential for releasing your package.
-`Semantic versioning <https://semver.org/>`_ is an useful method for informative versioning.
+`Semantic versioning <https://semver.org/>`_ is a useful method for informative versioning.
 
 It can be useful to store this in a separate file, so that it can be referenced from multiple places (e.g. ``setup.py`` and the main documentation).
 
+`Git tagging <https://drive.google.com/drive/folders/1CJj28JmAOG5IQY_DzQDtFVosg60VpjNs?usp=sharing>`_ can be used to mark significant points in your projects development.
+These tags can also be used to trigger version releases, for example using `GitHub Actions <https://github.com/marketplace/actions/tag-release-on-push-action>`_.
 
 Including Other Files
 ---------------------
